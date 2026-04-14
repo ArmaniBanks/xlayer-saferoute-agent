@@ -1,93 +1,142 @@
 # SafeRoute AI Guard for Onchain Execution
 
-SafeRoute is an AI-powered execution guard that analyzes user intent before transactions are signed, flags risks in real time, and prevents unsafe actions from reaching the blockchain.
+SafeRoute is an AI-powered safety layer that sits between user intent and blockchain execution on X Layer.
 
-Instead of blindly signing transactions, users get clear feedback, risk scoring, and protection before funds move.
+Today, users sign transactions blindly.
 
----
-
-## Live App
-
-https://xlayer-saferoute-agent.vercel.app/
+SafeRoute analyzes what a user is about to do before they sign, flags risks, explains why, and prevents unsafe actions from being executed.
 
 ---
 
-## Overview
+## Live Demo
 
-Onchain users regularly:
-- approve unlimited token access
-- interact with unknown contracts
-- swap into unsafe or illiquid tokens
+🔗 https://xlayer-saferoute-agent.vercel.app/
 
-Most wallets only ask:
+---
+
+## What SafeRoute Does
+
+- Accepts user intent in plain English  
+- Classifies actions as Safe / Caution / High Risk  
+- Explains the reasoning behind each decision  
+- Blocks unsafe transactions at the UI level  
+- Allows safer transactions to proceed  
+- Triggers real wallet-based execution on X Layer  
+
+---
+
+## Architecture Overview
+
+SafeRoute is built as a frontend AI-agent interface connected to onchain execution:
+
+1. User enters an intent (e.g. “Swap 5 USDT to ETH”)
+2. The analyzer evaluates the intent using rule-based logic
+3. A risk level is assigned:
+   - Safe
+   - Caution
+   - High Risk
+4. UI enforces execution control:
+   - High Risk → blocked
+   - Safe → allowed
+5. If allowed, the app triggers a real wallet transaction using:
+   - `window.ethereum`
+   - `eth_sendTransaction`
+
+---
+
+## 🔗 X Layer Integration
+
+SafeRoute is deployed and operates on **X Layer Mainnet**.
+
+- Wallet connection is handled via MetaMask / injected providers  
+- Transactions are executed directly on X Layer using standard EVM calls  
+- The application uses the connected wallet as the **execution identity**
+
+This ensures:
+- Real onchain interaction (not simulation)
+- Compatibility with X Layer’s low-cost, fast execution environment
+
+---
+
+## Agentic Wallet Design
+
+SafeRoute uses the connected wallet as its **agentic execution layer**.
+
+- The user wallet acts as the onchain identity  
+- The “agent” (SafeRoute) sits between user intent and execution  
+- It evaluates decisions before allowing the wallet to sign  
+
+This creates a simple but effective **intent → validation → execution** flow.
+
+---
+
+## ⚙️ Onchain OS / Uniswap Skill Usage
+
+SafeRoute does not directly integrate external Onchain OS or Uniswap modules.
+
+Instead, it focuses on:
+
+- Pre-execution intelligence  
+- Transaction safety analysis  
+- Routing decisions based on intent  
+
+The swap-related flows are simulated at the intent level, while execution is handled through standard wallet transactions.
+
+---
+
+## ⚡ Working Mechanism
+
+SafeRoute introduces a new interaction model:
+
+Instead of:
 > “Do you want to sign this transaction?”
 
-SafeRoute adds a decision layer before that step.
+It becomes:
+> “Is this transaction safe to execute?”
 
-It evaluates what the user is trying to do, explains the risks, and either blocks or allows execution based on safety.
+Flow:
 
----
-
-## ⚙️Core Features
-
-- **Intent-based analysis**  
-  Users describe what they want to do in plain text.
-
-- **Risk scoring engine**  
-  Classifies actions as Safe, Caution, or High Risk.
-
-- **Transparent reasoning**  
-  Explains why an action is risky or safe.
-
-- **Execution control**  
-  Blocks high-risk actions before reaching the wallet.
-
-- **Real wallet integration**  
-  Safe actions trigger a real MetaMask transaction request.
-
-- **Onchain visibility**  
-  Transactions can be viewed via block explorer.
+1. User describes action  
+2. AI layer evaluates risk  
+3. User sees explanation  
+4. Unsafe actions are blocked  
+5. Safe actions can be executed  
 
 ---
 
-## 🔐 How It Works
+## 📍 Positioning in X Layer Ecosystem
 
-1. User inputs an action (e.g. swap, approval, transfer)  
-2. SafeRoute analyzes the intent  
-3. Risk level is assigned  
-4. Explanation and safer suggestions are shown  
-5. High-risk actions are blocked  
-6. Safe actions proceed to wallet execution  
+SafeRoute acts as a **security and intelligence layer** for X Layer users.
 
----
+It can sit on top of:
+- DEXs  
+- Bridges  
+- Wallets  
+- Any onchain interaction  
 
-## 🧩 Tech Stack
-
-- Next.js (App Router)
-- React
-- Tailwind CSS
-- MetaMask / EVM wallet integration
-- X Layer mainnet
+Its goal is to reduce:
+- Blind signing  
+- Scam approvals  
+- Risky swaps  
 
 ---
 
-## 🌐 Why X Layer
+## 🧪 Deployment
 
-SafeRoute is built for real-time execution environments.
-
-X Layer provides:
-- fast transaction processing  
-- low execution cost  
-- smooth wallet interaction  
-
-This makes it ideal for safety checks that happen just before transactions are signed.
+- Network: X Layer Mainnet  
+- Frontend: Next.js  
+- Deployment: Vercel  
+- Repo: https://github.com/ArmaniBanks/xlayer-saferoute-agent  
 
 ---
 
-## Getting Started
+## 👤 Team
 
-Clone the repository:
+Built by:
+- Armani Banks (@Armanibanks100)
 
-```bash
-git clone https://github.com/ArmaniBanks/xlayer-saferoute-agent.git
-cd xlayer-saferoute-agent
+---
+
+## One Line
+
+SafeRoute is an AI layer that prevents unsafe transactions before they happen by analyzing intent before execution.
