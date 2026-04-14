@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SafeRoute AI Guard for Onchain Execution
+
+SafeRoute is an AI-powered execution guard that analyzes user intent before transactions are signed, flags risks in real time, and prevents unsafe actions from reaching the blockchain.
+
+Instead of blindly signing transactions, users get clear feedback, risk scoring, and protection before funds move.
+
+---
+
+## Live App
+
+https://xlayer-saferoute-agent.vercel.app/
+
+---
+
+## Overview
+
+Onchain users regularly:
+- approve unlimited token access
+- interact with unknown contracts
+- swap into unsafe or illiquid tokens
+
+Most wallets only ask:
+> “Do you want to sign this transaction?”
+
+SafeRoute adds a decision layer before that step.
+
+It evaluates what the user is trying to do, explains the risks, and either blocks or allows execution based on safety.
+
+---
+
+## ⚙️Core Features
+
+- **Intent-based analysis**  
+  Users describe what they want to do in plain text.
+
+- **Risk scoring engine**  
+  Classifies actions as Safe, Caution, or High Risk.
+
+- **Transparent reasoning**  
+  Explains why an action is risky or safe.
+
+- **Execution control**  
+  Blocks high-risk actions before reaching the wallet.
+
+- **Real wallet integration**  
+  Safe actions trigger a real MetaMask transaction request.
+
+- **Onchain visibility**  
+  Transactions can be viewed via block explorer.
+
+---
+
+## 🔐 How It Works
+
+1. User inputs an action (e.g. swap, approval, transfer)  
+2. SafeRoute analyzes the intent  
+3. Risk level is assigned  
+4. Explanation and safer suggestions are shown  
+5. High-risk actions are blocked  
+6. Safe actions proceed to wallet execution  
+
+---
+
+## 🧩 Tech Stack
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- MetaMask / EVM wallet integration
+- X Layer mainnet
+
+---
+
+## 🌐 Why X Layer
+
+SafeRoute is built for real-time execution environments.
+
+X Layer provides:
+- fast transaction processing  
+- low execution cost  
+- smooth wallet interaction  
+
+This makes it ideal for safety checks that happen just before transactions are signed.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/ArmaniBanks/xlayer-saferoute-agent.git
+cd xlayer-saferoute-agent
