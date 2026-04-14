@@ -465,10 +465,14 @@ if (chainId !== "0xc4") {
 
             <button
   onClick={handleExecute}
-  disabled={!intent || isExecuting}
+  disabled={!intent || isExecuting || result.riskLevel === "High Risk"}
   className="w-full rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
 >
-  {isExecuting ? "Executing..." : "Execute preview action"}
+  {result.riskLevel === "High Risk"
+  ? "Blocked by SafeRoute"
+  : isExecuting
+  ? "Executing..."
+  : "Execute preview action"}
 </button>
 
             {executed ? (
@@ -482,6 +486,13 @@ if (chainId !== "0xc4") {
     <p className="break-all text-xs text-emerald-100">
       {txHash}
     </p>
+    <a
+  href={`https://www.oklink.com/xlayer/tx/${txHash}`}
+  target="_blank"
+  className="text-xs text-blue-400 underline"
+>
+  View on Explorer
+</a>
   </div>
 ) : null}
           </div>
