@@ -313,7 +313,7 @@ if (chainId !== "0xc4") {
   
   <div className="flex w-full max-w-sm flex-col gap-3">
   <div className="rounded-2xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm text-zinc-300">
-    Status: <span className="font-medium text-white">UI Prototype Live</span>
+    Status: <span className="font-medium text-emerald-400">Live on X Layer Mainnet</span>
   </div>
 
   <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
