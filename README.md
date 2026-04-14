@@ -84,7 +84,7 @@ The swap-related flows are simulated at the intent level, while execution is han
 
 ---
 
-## ⚡ Working Mechanism
+## Working Mechanism
 
 SafeRoute introduces a new interaction model:
 
@@ -104,7 +104,7 @@ Flow:
 
 ---
 
-## 📍 Positioning in X Layer Ecosystem
+## Positioning in X Layer Ecosystem
 
 SafeRoute acts as a **security and intelligence layer** for X Layer users.
 
